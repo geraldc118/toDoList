@@ -60,6 +60,7 @@ Item.find({}, function(err,foundItems){
   });
 });
 
+//Makes all entries submitted capitalized on List.
 app.get("/:customListName", function(req,res){
 const customListName = _.capitalize(req.params.customListName);
 
@@ -108,6 +109,7 @@ app.post("/delete",function(req,res){
 const checkedItemId= req.body.checkbox;
 const listName = req.body.listName;
 
+//Deleting an item from list.
 if(listName === "Today"){
 Item.findByIdAndRemove(checkedItemId, function(err){
   if (!err) {
